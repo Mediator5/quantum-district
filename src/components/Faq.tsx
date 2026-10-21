@@ -65,7 +65,7 @@ export function Faq() {
                     <span
                       className={`grid h-9 w-9 shrink-0 place-items-center rounded-full border transition-all duration-400 ${
                         isOpen
-                          ? "rotate-45 border-accent-500 bg-accent-500 text-white"
+                          ? "rotate-45 border-accent-500 bg-accent-500 text-navy-950"
                           : "border-navy-900/15 text-navy-900/60 group-hover:border-navy-900/35"
                       }`}
                     >

@@ -243,7 +243,7 @@ export function ContactForm() {
                   initial={{ opacity: 0, y: -6 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0 }}
-                  className="flex items-start gap-2.5 rounded-xl border border-accent-500/25 bg-accent-500/6 px-4 py-3 text-[14px] text-accent-600"
+                  className="flex items-start gap-2.5 rounded-xl border border-danger-500/25 bg-danger-500/6 px-4 py-3 text-[14px] text-danger-600"
                 >
                   <AlertCircle className="mt-0.5 h-4 w-4 shrink-0" />
                   {error}
@@ -283,7 +283,7 @@ export function ContactForm() {
 function FieldError({ message }: { message?: string }) {
   if (!message) return null;
   return (
-    <p className="mt-2 flex items-center gap-1.5 text-[13px] text-accent-600">
+    <p className="mt-2 flex items-center gap-1.5 text-[13px] text-danger-600">
       <AlertCircle className="h-3.5 w-3.5" />
       {message}
     </p>

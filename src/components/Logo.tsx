@@ -40,7 +40,7 @@ export function Logo({
       >
         <span
           aria-hidden
-          className="absolute inset-0 bg-[radial-gradient(120%_120%_at_20%_0%,rgba(95,150,255,.55),transparent_60%)] opacity-80"
+          className="absolute inset-0 bg-[radial-gradient(120%_120%_at_20%_0%,rgba(216,188,115,.55),transparent_60%)] opacity-80"
         />
         <span
           aria-hidden

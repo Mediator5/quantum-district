@@ -1,0 +1,839 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300..800&family=Sora:wght@500;600;700&display=swap">
+<style>body{margin:0;font-family:Inter,sans-serif}</style><style>
+/* ==========================================================================
+   QUANTUM DISTRICT — styles for the pasted code-block sections
+   APPEND this to the end of your existing Custom CSS
+   (Website → Website Tools → Custom CSS)
+
+   Everything is scoped under .qd so it cannot collide with Squarespace.
+   ========================================================================== */
+
+.qd {
+  --navy-950: #030b1c;
+  --navy-900: #061534;
+  --navy-800: #0b2149;
+  --brand-300: #8fb4fb;
+  --brand-500: #2f6ce5;
+  --brand-600: #1d52c4;
+  --accent-500: #e11d2e;
+  --mist: #f5f8fd;
+
+  --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --display: 'Sora', 'Inter', -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+  font-family: var(--sans);
+  color: var(--navy-900);
+  position: relative;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  padding: 6rem 1.25rem;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (min-width: 768px) { .qd { padding: 7.5rem 2rem; } }
+
+.qd *, .qd *::before, .qd *::after { box-sizing: border-box; }
+
+.qd__inner {
+  max-width: 80rem;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+/* --- Backgrounds ------------------------------------------------------- */
+.qd--white { background: #fff; }
+.qd--mist  { background: var(--mist); }
+.qd--navy  { background: var(--navy-950); color: rgba(255,255,255,.66); }
+
+.qd--navy h2, .qd--navy h3, .qd--navy h4, .qd--navy strong { color: #fff; }
+
+/* Faint grid texture */
+.qd::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    linear-gradient(to right, rgba(6,21,52,.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(6,21,52,.045) 1px, transparent 1px);
+  background-size: 72px 72px;
+}
+.qd--navy::before {
+  background-image:
+    linear-gradient(to right, rgba(255,255,255,.055) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,.055) 1px, transparent 1px);
+}
+
+/* Optional photographic backdrop on navy sections */
+.qd__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  opacity: .18;
+}
+.qd__scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(115deg, rgba(3,11,28,.93) 0%, rgba(6,21,52,.84) 45%, rgba(11,33,73,.70) 100%);
+}
+
+/* --- Typography -------------------------------------------------------- */
+.qd__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: .85rem;
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--brand-600);
+  margin: 0 0 1.4rem;
+}
+.qd--navy .qd__eyebrow { color: var(--brand-300); }
+.qd__eyebrow::before {
+  content: "";
+  width: 2rem;
+  height: 1px;
+  background: var(--accent-500);
+}
+
+.qd h2 {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(2rem, 4.2vw, 3.1rem);
+  line-height: 1.1;
+  letter-spacing: -.025em;
+  margin: 0 0 1.4rem;
+  color: var(--navy-950);
+  text-wrap: balance;
+}
+.qd--navy h2 { color: #fff; }
+
+.qd h3 {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 1.25rem;
+  line-height: 1.3;
+  letter-spacing: -.02em;
+  margin: 0 0 .7rem;
+  color: var(--navy-950);
+}
+
+.qd p {
+  font-size: 1.02rem;
+  line-height: 1.75;
+  margin: 0 0 1.1rem;
+  color: rgba(6,21,52,.68);
+}
+.qd--navy p { color: rgba(255,255,255,.66); }
+
+.qd__lead { font-size: 1.1rem; max-width: 44rem; }
+.qd__center { text-align: center; }
+.qd__center .qd__eyebrow { justify-content: center; }
+.qd__center .qd__lead { margin-inline: auto; }
+
+/* --- Buttons ----------------------------------------------------------- */
+.qd__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .6rem;
+  border-radius: 999px;
+  padding: 1rem 2.1rem;
+  font-size: .95rem;
+  font-weight: 700;
+  letter-spacing: .03em;
+  text-decoration: none;
+  transition: background-color .3s ease, color .3s ease, transform .3s ease;
+  background: var(--navy-950);
+  color: #fff;
+}
+.qd__btn:hover { background: var(--brand-600); color: #fff; transform: translateY(-2px); }
+.qd--navy .qd__btn { background: #fff; color: var(--navy-950); }
+.qd--navy .qd__btn:hover { background: var(--brand-300); color: var(--navy-950); }
+
+.qd__btn--ghost {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,.22);
+  color: #fff;
+}
+.qd__btn--ghost:hover { background: rgba(255,255,255,.07); border-color: rgba(255,255,255,.5); }
+
+/* --- Reveal on scroll -------------------------------------------------- */
+.qd [data-reveal] {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity .75s cubic-bezier(.16,1,.3,1), transform .75s cubic-bezier(.16,1,.3,1);
+}
+.qd [data-reveal].is-in { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .qd [data-reveal] { opacity: 1; transform: none; transition: none; }
+}
+
+/* --- Grid helpers ------------------------------------------------------ */
+.qd__grid { display: grid; gap: 1.5rem; }
+.qd__grid--2 { grid-template-columns: 1fr; }
+.qd__grid--3 { grid-template-columns: 1fr; }
+.qd__grid--4 { grid-template-columns: 1fr; }
+
+@media (min-width: 700px) {
+  .qd__grid--3 { grid-template-columns: repeat(2, 1fr); }
+  .qd__grid--4 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 1000px) {
+  .qd__grid--2 { grid-template-columns: repeat(2, 1fr); gap: 4rem; align-items: center; }
+  .qd__grid--3 { grid-template-columns: repeat(3, 1fr); }
+  .qd__grid--4 { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* --- Cards ------------------------------------------------------------- */
+.qd__card {
+  background: #fff;
+  border: 1px solid rgba(6,21,52,.09);
+  border-radius: 1.4rem;
+  padding: 1.9rem;
+  position: relative;
+  overflow: hidden;
+  transition: transform .45s cubic-bezier(.16,1,.3,1), box-shadow .45s ease;
+}
+.qd__card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 2px 4px rgba(6,21,52,.06), 0 28px 60px -20px rgba(6,21,52,.28);
+}
+.qd--mist .qd__card { background: #fff; }
+
+.qd__card::after {
+  content: "";
+  position: absolute;
+  left: 0; bottom: 0;
+  height: 3px; width: 0;
+  background: var(--accent-500);
+  transition: width .5s cubic-bezier(.16,1,.3,1);
+}
+.qd__card:hover::after { width: 100%; }
+
+.qd__num {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: .8rem;
+  letter-spacing: .14em;
+  color: rgba(6,21,52,.22);
+  display: block;
+  margin-bottom: .9rem;
+}
+.qd--navy .qd__num { color: rgba(255,255,255,.3); }
+
+/* --- Images ------------------------------------------------------------ */
+.qd__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 1.4rem;
+  display: block;
+}
+.qd__imgwrap { position: relative; overflow: hidden; border-radius: 1.4rem; }
+.qd__imgwrap img { transition: transform .9s cubic-bezier(.16,1,.3,1); }
+.qd__imgwrap:hover img { transform: scale(1.05); }
+
+/* --- Pull quote -------------------------------------------------------- */
+.qd__quote {
+  border-left: 3px solid var(--accent-500);
+  background: var(--mist);
+  border-radius: 0 1rem 1rem 0;
+  padding: 1.8rem;
+  margin: 2.2rem 0 0;
+}
+.qd__quote p:first-child {
+  font-family: var(--display);
+  font-size: 1.3rem;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--navy-950);
+}
+
+/* --- Stats ------------------------------------------------------------- */
+.qd__stats {
+  display: grid;
+  gap: 1px;
+  background: rgba(255,255,255,.12);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 1.5rem;
+  overflow: hidden;
+  margin-top: 4rem;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 640px) { .qd__stats { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1000px) { .qd__stats { grid-template-columns: repeat(4, 1fr); } }
+
+.qd__stat { background: rgba(3,11,28,.88); padding: 2rem; transition: background-color .5s ease; }
+.qd__stat:hover { background: rgba(6,21,52,.78); }
+.qd__stat b {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 2.7rem;
+  line-height: 1;
+  color: #fff;
+  display: inline-block;
+}
+.qd__stat i {
+  display: inline-block;
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--accent-500);
+  margin-left: .55rem;
+  vertical-align: top;
+  margin-top: .35rem;
+}
+.qd__stat span {
+  display: block;
+  margin-top: .9rem;
+  font-size: .9rem;
+  line-height: 1.45;
+  color: rgba(255,255,255,.55);
+}
+
+/* --- Approach rail ----------------------------------------------------- */
+.qd__phase { display: grid; gap: 1.8rem; align-items: center; margin-bottom: 2.5rem; }
+@media (min-width: 1000px) {
+  .qd__phase { grid-template-columns: 1fr 1fr; gap: 4rem; margin-bottom: 4.5rem; }
+  .qd__phase--flip .qd__phase-copy { order: 2; }
+}
+.qd__phase-copy { display: flex; gap: 1.3rem; align-items: flex-start; }
+.qd__phase-copy > span {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 2.6rem;
+  line-height: 1;
+  color: rgba(6,21,52,.12);
+}
+.qd__phase .qd__imgwrap { aspect-ratio: 16 / 10; }
+
+/* --- Marquee ----------------------------------------------------------- */
+.qd__marquee { overflow: hidden; mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent); }
+.qd__marquee ul {
+  display: flex;
+  gap: .75rem;
+  width: max-content;
+  list-style: none;
+  margin: 0; padding: 0;
+  animation: qd-marquee 38s linear infinite;
+}
+.qd__marquee li {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  white-space: nowrap;
+  border: 1px solid rgba(6,21,52,.1);
+  background: #fff;
+  border-radius: 999px;
+  padding: .8rem 1.5rem;
+  font-size: .92rem;
+  font-weight: 500;
+  color: rgba(6,21,52,.75);
+}
+.qd__marquee li::before {
+  content: "";
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--accent-500);
+}
+@keyframes qd-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .qd__marquee ul { animation: none; } }
+
+/* --- FAQ --------------------------------------------------------------- */
+.qd__faq { border-top: 1px solid rgba(6,21,52,.1); }
+.qd__faq details { border-bottom: 1px solid rgba(6,21,52,.1); }
+.qd__faq summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 1.35rem 3rem 1.35rem 0;
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: var(--navy-950);
+  position: relative;
+  transition: color .25s ease;
+}
+.qd__faq summary::-webkit-details-marker { display: none; }
+.qd__faq summary:hover { color: var(--brand-600); }
+.qd__faq summary::after {
+  content: "+";
+  position: absolute;
+  right: 0; top: 50%;
+  transform: translateY(-50%);
+  width: 2.1rem; height: 2.1rem;
+  display: grid; place-items: center;
+  border: 1px solid rgba(6,21,52,.15);
+  border-radius: 50%;
+  font-size: 1.1rem;
+  color: rgba(6,21,52,.6);
+  transition: all .4s ease;
+}
+.qd__faq details[open] summary { color: var(--brand-600); }
+.qd__faq details[open] summary::after {
+  content: "+";
+  transform: translateY(-50%) rotate(45deg);
+  background: var(--accent-500);
+  border-color: var(--accent-500);
+  color: #fff;
+}
+.qd__faq details p { padding: 0 3rem 1.5rem 0; margin: 0; }
+
+/* --- Testimonials ------------------------------------------------------ */
+.qd__quotecard { display: flex; flex-direction: column; height: 100%; }
+.qd__quotecard blockquote { margin: 0 0 1.5rem; flex: 1; font-size: 1rem; line-height: 1.7; color: rgba(6,21,52,.8); }
+.qd__quotecard figcaption { display: flex; align-items: center; gap: .9rem; border-top: 1px solid rgba(6,21,52,.08); padding-top: 1.2rem; }
+.qd__quotecard img { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; }
+.qd__quotecard b { display: block; font-family: var(--display); font-size: .92rem; color: var(--navy-950); }
+.qd__quotecard em { display: block; font-style: normal; font-size: .85rem; color: rgba(6,21,52,.55); }
+
+/* --- Chat mock --------------------------------------------------------- */
+.qd__chat { border: 1px solid rgba(6,21,52,.1); border-radius: 1.5rem; overflow: hidden; background: #fff; box-shadow: 0 2px 4px rgba(6,21,52,.05), 0 28px 60px -24px rgba(6,21,52,.22); }
+.qd__chat-head { background: var(--navy-950); padding: 1.1rem 1.3rem; display: flex; align-items: center; gap: .8rem; }
+.qd__chat-head b { color: #fff; font-size: .95rem; font-family: var(--display); }
+.qd__chat-head span { display: block; color: rgba(255,255,255,.5); font-size: .78rem; }
+.qd__chat-body { padding: 1.3rem; background: var(--mist); display: flex; flex-direction: column; gap: .85rem; }
+.qd__msg { max-width: 88%; padding: .75rem 1rem; border-radius: 1rem; font-size: .92rem; line-height: 1.6; }
+.qd__msg--them { align-self: flex-start; background: #fff; border: 1px solid rgba(6,21,52,.08); border-bottom-left-radius: .35rem; color: rgba(6,21,52,.85); }
+.qd__msg--you { align-self: flex-end; background: var(--navy-950); color: #fff; border-bottom-right-radius: .35rem; }
+.qd__pill { background: var(--accent-500); color: #fff; font-size: .65rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; padding: .3rem .6rem; border-radius: 999px; margin-left: auto; }
+
+/* --- Icon tile --------------------------------------------------------- */
+.qd__tile {
+  width: 2.8rem; height: 2.8rem;
+  border-radius: .85rem;
+  background: var(--navy-950);
+  color: #fff;
+  display: grid; place-items: center;
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: .85rem;
+  flex-shrink: 0;
+  transition: background-color .4s ease;
+}
+.qd__card:hover .qd__tile { background: var(--brand-600); }
+</style></head><body>
+<section class="qd qd--mist" style="padding-top:2.6rem;padding-bottom:2.6rem">
+  <div class="qd__inner">
+    <p style="text-align:center;font-size:.7rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:rgba(6,21,52,.4);margin:0 0 1.4rem">
+      Trusted across mission-critical sectors
+    </p>
+    <div class="qd__marquee">
+      <ul>
+        <li>Government &amp; Public Sector</li>
+        <li>Healthcare</li>
+        <li>Financial Services</li>
+        <li>Higher Education</li>
+        <li>Energy &amp; Utilities</li>
+        <li>Nonprofit &amp; Associations</li>
+        <li>Government &amp; Public Sector</li>
+        <li>Healthcare</li>
+        <li>Financial Services</li>
+        <li>Higher Education</li>
+        <li>Energy &amp; Utilities</li>
+        <li>Nonprofit &amp; Associations</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="qd qd--white" id="about">
+  <div class="qd__inner">
+    <div class="qd__grid qd__grid--2">
+
+      <div data-reveal>
+        <div class="qd__imgwrap" style="aspect-ratio:4/3.2">
+          <img class="qd__img" loading="lazy"
+               src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&amp;fit=crop&amp;w=1200&amp;q=80"
+               alt="Quantum District consultants working through an organizational assessment">
+        </div>
+      </div>
+
+      <div data-reveal style="transition-delay:.1s">
+        <p class="qd__eyebrow">About Quantum District</p>
+        <h2>Clarity for Complex Problems.</h2>
+        <p>Quantum District is a forward-thinking consulting firm focused on helping
+           organizations make smarter decisions, modernize operations, and execute
+           initiatives that matter.</p>
+        <p>We combine strategic thinking, technology expertise, and disciplined
+           execution to create solutions that are practical, scalable, and aligned
+           with organizational goals.</p>
+
+        <div class="qd__quote">
+          <p>Strategy is only valuable when it creates action.</p>
+          <p style="margin:0">We work alongside our clients to move from ideas and
+             requirements to implementation, outcomes, and lasting impact.</p>
+          <p style="margin:1rem 0 0;font-size:.7rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:rgba(6,21,52,.4)">
+             Our Promise</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="qd qd--navy" id="mission">
+  <img class="qd__bg" loading="lazy"
+       src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&amp;fit=crop&amp;w=2000&amp;q=80" alt="">
+  <div class="qd__scrim"></div>
+
+  <div class="qd__inner qd__center">
+    <div data-reveal>
+      <p class="qd__eyebrow">Our Mission</p>
+      <h2 style="max-width:60rem;margin-inline:auto">
+        To help organizations turn ambitious ideas into
+        <span style="color:#8fb4fb">meaningful,</span> measurable outcomes.
+      </h2>
+      <p class="qd__lead">At Quantum District, our mission is to bridge the gap between
+         strategy and execution. We help organizations identify opportunities, solve
+         complex challenges, leverage technology, and build sustainable solutions that
+         deliver lasting value.</p>
+    </div>
+
+    <div class="qd__stats" data-reveal style="transition-delay:.12s">
+      <div class="qd__stat"><b data-count="18" data-suffix="+">0</b><i></i><span>Years of combined delivery leadership</span></div>
+      <div class="qd__stat"><b data-count="40" data-suffix="+">0</b><i></i><span>Programs guided from strategy to launch</span></div>
+      <div class="qd__stat"><b data-count="96" data-suffix="%">0</b><i></i><span>Client initiatives delivered on schedule</span></div>
+      <div class="qd__stat"><b data-count="24" data-suffix="h">0</b><i></i><span>Typical response to a new inquiry</span></div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function () {
+  if (window.__qdCount) return;
+  window.__qdCount = true;
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      io.unobserve(e.target);
+      var el = e.target,
+          target = parseInt(el.getAttribute('data-count'), 10),
+          suffix = el.getAttribute('data-suffix') || '',
+          start = performance.now(),
+          dur = 1800;
+      function tick(now) {
+        var p = Math.min((now - start) / dur, 1),
+            eased = 1 - Math.pow(1 - p, 3);
+        el.textContent = Math.round(eased * target) + suffix;
+        if (p < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    });
+  }, { threshold: 0.4 });
+  function scan() { document.querySelectorAll('.qd [data-count]').forEach(function (el) { io.observe(el); }); }
+  scan(); setTimeout(scan, 1500);
+})();
+</script>
+
+<section class="qd qd--mist" id="approach">
+  <div class="qd__inner">
+    <div class="qd__center" data-reveal style="margin-bottom:4rem">
+      <p class="qd__eyebrow">Our Approach</p>
+      <h2>Practical. Collaborative. Outcome-Driven.</h2>
+      <p class="qd__lead">Four disciplined phases that carry an initiative from first
+         conversation to sustained results — with a named owner at every handoff.</p>
+    </div>
+
+    <div class="qd__phase" data-reveal>
+      <div class="qd__phase-copy">
+        <span>01</span>
+        <div><h3>Understand</h3>
+          <p>We listen first, understand the mission, and define the challenge before
+             recommending a solution.</p></div>
+      </div>
+      <div class="qd__imgwrap">
+        <img class="qd__img" loading="lazy" alt="Understand phase"
+             src="https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&amp;fit=crop&amp;w=1100&amp;q=80">
+      </div>
+    </div>
+
+    <div class="qd__phase qd__phase--flip" data-reveal>
+      <div class="qd__phase-copy">
+        <span>02</span>
+        <div><h3>Design</h3>
+          <p>We develop practical strategies and solutions aligned with business
+             objectives and organizational realities.</p></div>
+      </div>
+      <div class="qd__imgwrap">
+        <img class="qd__img" loading="lazy" alt="Design phase"
+             src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&amp;fit=crop&amp;w=1100&amp;q=80">
+      </div>
+    </div>
+
+    <div class="qd__phase" data-reveal>
+      <div class="qd__phase-copy">
+        <span>03</span>
+        <div><h3>Execute</h3>
+          <p>We help turn strategy into action through disciplined implementation and
+             accountable delivery.</p></div>
+      </div>
+      <div class="qd__imgwrap">
+        <img class="qd__img" loading="lazy" alt="Execute phase"
+             src="https://images.unsplash.com/photo-1552581234-26160f608093?auto=format&amp;fit=crop&amp;w=1100&amp;q=80">
+      </div>
+    </div>
+
+    <div class="qd__phase qd__phase--flip" data-reveal style="margin-bottom:0">
+      <div class="qd__phase-copy">
+        <span>04</span>
+        <div><h3>Improve</h3>
+          <p>We measure outcomes, identify opportunities, and continuously improve the
+             solution.</p></div>
+      </div>
+      <div class="qd__imgwrap">
+        <img class="qd__img" loading="lazy" alt="Improve phase"
+             src="https://images.unsplash.com/photo-1518186285589-2f7649de83e0?auto=format&amp;fit=crop&amp;w=1100&amp;q=80">
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="qd qd--white">
+  <div class="qd__inner">
+    <div class="qd__grid qd__grid--2">
+
+      <div data-reveal>
+        <p class="qd__eyebrow">Why clients move faster with us</p>
+        <h2>Answers in minutes.<br>Momentum in days.</h2>
+        <p>Most consulting relationships lose two weeks before the first real
+           conversation. We removed that gap with assisted intake, a same-day response
+           standard, and contracting that happens in one place.</p>
+
+        <div style="display:grid;gap:1rem;margin-top:2rem">
+          <div class="qd__card" style="display:flex;gap:1rem;padding:1.4rem">
+            <span class="qd__tile">01</span>
+            <div><h3 style="font-size:1.02rem">Accelerated discovery</h3>
+              <p style="margin:0;font-size:.93rem">Scoping questions are answered the moment
+                 you ask them, and the details go straight to a senior consultant — no
+                 waiting on a callback to get moving.</p></div>
+          </div>
+          <div class="qd__card" style="display:flex;gap:1rem;padding:1.4rem">
+            <span class="qd__tile">02</span>
+            <div><h3 style="font-size:1.02rem">Answers in hours, not weeks</h3>
+              <p style="margin:0;font-size:.93rem">Every inquiry gets a human response in
+                 under one business day, with a scoped point of view — not a generic
+                 brochure.</p></div>
+          </div>
+          <div class="qd__card" style="display:flex;gap:1rem;padding:1.4rem">
+            <span class="qd__tile">03</span>
+            <div><h3 style="font-size:1.02rem">Contracting without friction</h3>
+              <p style="margin:0;font-size:.93rem">Proposals, agreements, and e-signature run
+                 through our client portal, so you go from conversation to kickoff in
+                 days.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div data-reveal style="transition-delay:.12s">
+        <div class="qd__chat">
+          <div class="qd__chat-head">
+            <div><b>Quantum District</b><span>Replies in under 1 business day</span></div>
+            <span class="qd__pill">Fast</span>
+          </div>
+          <div class="qd__chat-body">
+            <p class="qd__msg qd__msg--you" style="margin:0">Can you help modernize a 12-year-old case management system?</p>
+            <p class="qd__msg qd__msg--them" style="margin:0">Yes — that sits in Technology Transformation. We'd start with a 2–3 week assessment of the current architecture and data, then sequence a migration your team can absorb.</p>
+            <p class="qd__msg qd__msg--you" style="margin:0">How fast could we start?</p>
+            <p class="qd__msg qd__msg--them" style="margin:0">Discovery call within 48 hours, scoped proposal through our client portal after that.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="qd qd--white">
+  <div class="qd__inner">
+    <div class="qd__center" data-reveal style="margin-bottom:3.5rem">
+      <p class="qd__eyebrow">Client Outcomes</p>
+      <h2>What partnership looks like in practice.</h2>
+      <p class="qd__lead">Engagement feedback shared with permission. Names withheld at
+         client request.</p>
+    </div>
+
+    <div class="qd__grid qd__grid--3">
+      <figure class="qd__card qd__quotecard" data-reveal style="margin:0">
+        <blockquote>&ldquo;They walked in with a plan on day three, not month three. The roadmap was practical, funded, and actually got built.&rdquo;</blockquote>
+        <figcaption>
+          <img loading="lazy" alt="" src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&amp;fit=crop&amp;w=200&amp;q=80">
+          <span><b>Director of Operations</b><em>Federal health program</em></span>
+        </figcaption>
+      </figure>
+
+      <figure class="qd__card qd__quotecard" data-reveal style="margin:0;transition-delay:.08s">
+        <blockquote>&ldquo;Quantum District turned a stalled modernization effort into a sequenced, measurable program. Leadership finally had one version of the truth.&rdquo;</blockquote>
+        <figcaption>
+          <img loading="lazy" alt="" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&amp;fit=crop&amp;w=200&amp;q=80">
+          <span><b>VP, Technology</b><em>Regional financial services firm</em></span>
+        </figcaption>
+      </figure>
+
+      <figure class="qd__card qd__quotecard" data-reveal style="margin:0;transition-delay:.16s">
+        <blockquote>&ldquo;The difference is follow-through. They stayed until adoption was real and the numbers moved.&rdquo;</blockquote>
+        <figcaption>
+          <img loading="lazy" alt="" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&amp;fit=crop&amp;w=200&amp;q=80">
+          <span><b>Chief of Staff</b><em>State agency transformation office</em></span>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="qd qd--mist" id="engage">
+  <div class="qd__inner">
+    <div class="qd__center" data-reveal style="margin-bottom:3.5rem">
+      <p class="qd__eyebrow">Partnership &amp; Agreements</p>
+      <h2>From first conversation to signed agreement — without the drag.</h2>
+      <p class="qd__lead">Proposals, statements of work, agreements, e-signature, and
+         milestone invoicing run through our secure client portal. You review everything
+         in one place before anything is countersigned.</p>
+    </div>
+
+    <div class="qd__grid qd__grid--4">
+      <div class="qd__card" data-reveal>
+        <span class="qd__num">01</span>
+        <h3>Discovery call</h3>
+        <p style="margin:0;font-size:.94rem">A 30-minute working session — usually inside
+           48 hours — to define the challenge and confirm fit.</p>
+      </div>
+      <div class="qd__card" data-reveal style="transition-delay:.07s">
+        <span class="qd__num">02</span>
+        <h3>Scoped proposal</h3>
+        <p style="margin:0;font-size:.94rem">A written proposal with objectives, phases,
+           deliverables, and pricing. No hourly guessing games.</p>
+      </div>
+      <div class="qd__card" data-reveal style="transition-delay:.14s">
+        <span class="qd__num">03</span>
+        <h3>Agreement &amp; e-signature</h3>
+        <p style="margin:0;font-size:.94rem">Your contract and statement of work are issued
+           through our client portal — reviewed and signed in one place.</p>
+      </div>
+      <div class="qd__card" data-reveal style="transition-delay:.21s">
+        <span class="qd__num">04</span>
+        <h3>Kickoff</h3>
+        <p style="margin:0;font-size:.94rem">Milestone invoicing, a named delivery lead, and
+           a schedule everyone has already agreed to.</p>
+      </div>
+    </div>
+
+    <!-- DUBSADO / HONEYBOOK
+         When the client supplies the portal form URL, replace the block below
+         with their embed iframe:
+         <iframe src="PASTE_URL_HERE" style="width:100%;height:760px;border:0;border-radius:1.4rem;background:#fff" loading="lazy"></iframe>
+    -->
+    <div class="qd__card qd__center" data-reveal style="margin-top:2.5rem;padding:3rem 2rem">
+      <h3 style="margin-bottom:.8rem">Client portal</h3>
+      <p style="max-width:34rem;margin-inline:auto">Secure intake, proposals, agreements and
+         e-signature. Until the portal is connected, the contact form reaches our team
+         just as fast.</p>
+      <a class="qd__btn" href="/contact" style="margin-top:.6rem">Request a proposal</a>
+    </div>
+
+  </div>
+</section>
+
+<section class="qd qd--white" id="faq">
+  <div class="qd__inner">
+    <div class="qd__grid qd__grid--2" style="align-items:start">
+
+      <div data-reveal>
+        <p class="qd__eyebrow">Quick Answers</p>
+        <h2>Questions, answered fast.</h2>
+        <p>Anything not covered here gets a human reply in under one business day.</p>
+        <a class="qd__btn" href="/contact" style="margin-top:.8rem">Ask us directly</a>
+      </div>
+
+      <div class="qd__faq" data-reveal style="transition-delay:.1s">
+        <details open>
+          <summary>How quickly can we get started?</summary>
+          <p>Most engagements begin with a 30-minute discovery call within 48 hours of your
+             first message. From there we can issue a scoped proposal and agreement through
+             our client portal — many clients are at kickoff inside two weeks.</p>
+        </details>
+        <details>
+          <summary>What does a typical engagement look like?</summary>
+          <p>We scope to the outcome, not the hours. Engagements usually run as a short
+             assessment sprint (2–4 weeks), a defined delivery phase, and an improvement
+             cycle. Advisory retainers are available for ongoing decision support.</p>
+        </details>
+        <details>
+          <summary>How do contracts and agreements work?</summary>
+          <p>Proposals, statements of work, and agreements are issued through our secure
+             client portal, with e-signature and milestone-based invoicing. You review
+             everything in one place before anything is countersigned.</p>
+        </details>
+        <details>
+          <summary>Do you work with government and regulated organizations?</summary>
+          <p>Yes. A large share of our work is with public sector, healthcare, and regulated
+             environments where governance, documentation, and audit-readiness are part of
+             the delivery standard.</p>
+        </details>
+        <details>
+          <summary>How is AI used in your work?</summary>
+          <p>Internally, AI accelerates research, analysis, and documentation so our
+             consultants spend their time on judgment rather than assembly — that is how we
+             keep turnaround short. For clients, we assess where AI creates real leverage in
+             your operations and where it does not.</p>
+        </details>
+        <details>
+          <summary>What if we are not sure what we need yet?</summary>
+          <p>That is a normal starting point and a good use of a first conversation. Bring
+             the problem, the constraint, or the deadline — we will tell you candidly whether
+             we are the right fit and what we would do first.</p>
+        </details>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="qd qd--navy">
+  <img class="qd__bg" loading="lazy"
+       src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&amp;fit=crop&amp;w=2000&amp;q=80" alt="">
+  <div class="qd__scrim"></div>
+
+  <div class="qd__inner qd__center" data-reveal>
+    <p class="qd__eyebrow">Let's Work Together</p>
+    <h2 style="font-size:clamp(2.2rem,5vw,3.6rem)">Ready to Move Forward?</h2>
+    <p class="qd__lead">Tell us about your challenge, initiative, or opportunity.
+       Quantum District is ready to help you define the path forward.</p>
+
+    <div style="display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap;margin-top:2rem">
+      <a class="qd__btn" href="/contact">CONTACT QUANTUM DISTRICT</a>
+      <a class="qd__btn qd__btn--ghost" href="mailto:hello@quantumdistrict.com">hello@quantumdistrict.com</a>
+    </div>
+
+    <p style="margin-top:1.8rem;font-size:.86rem;color:rgba(255,255,255,.45)">
+      Every inquiry receives a personal reply in under 1 business day.
+    </p>
+  </div>
+</section>
+
+<script>
+(function () {
+  if (window.__qdReveal) return;
+  window.__qdReveal = true;
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.12, rootMargin: '-40px' });
+  function scan() {
+    document.querySelectorAll('.qd [data-reveal]:not(.is-in)').forEach(function (el) { io.observe(el); });
+  }
+  scan(); setTimeout(scan, 1200); setTimeout(scan, 3000);
+})();
+</script>
+
+</body></html>

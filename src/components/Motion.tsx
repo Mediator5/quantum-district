@@ -227,7 +227,7 @@ export function Spotlight({
           background: useTransform(
             [x, y],
             ([lx, ly]) =>
-              `radial-gradient(320px circle at ${lx}px ${ly}px, rgba(47,108,229,0.13), transparent 70%)`,
+              `radial-gradient(320px circle at ${lx}px ${ly}px, rgba(194,161,77,0.16), transparent 70%)`,
           ),
         }}
       />

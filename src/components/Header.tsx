@@ -36,7 +36,7 @@ export function Header() {
         className={clsx(
           "fixed inset-x-0 top-0 z-50 transition-all duration-500",
           scrolled
-            ? "border-b border-navy-900/8 bg-white/92 py-2.5 backdrop-blur-xl shadow-[0_8px_30px_-18px_rgba(6,21,52,.35)]"
+            ? "border-b border-navy-900/8 bg-white/92 py-2.5 backdrop-blur-xl shadow-[0_8px_30px_-18px_rgba(12,11,10,.35)]"
             : "border-b border-transparent bg-transparent py-4",
         )}
       >

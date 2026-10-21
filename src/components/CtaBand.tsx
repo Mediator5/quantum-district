@@ -17,7 +17,7 @@ export function CtaBand() {
       />
       <div
         aria-hidden
-        className="absolute inset-0 -z-10 bg-[linear-gradient(120deg,#030b1c_0%,rgba(6,21,52,.94)_45%,rgba(19,48,99,.82)_100%)]"
+        className="absolute inset-0 -z-10 bg-[linear-gradient(120deg,#0c0b0a_0%,rgba(20,18,15,.94)_45%,rgba(43,39,32,.82)_100%)]"
       />
       <div aria-hidden className="absolute inset-0 -z-10 grid-lines opacity-45" />
       <div

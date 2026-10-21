@@ -26,7 +26,7 @@ export default function StartPage() {
         />
         <div
           aria-hidden
-          className="absolute inset-0 -z-10 bg-[linear-gradient(125deg,#030b1c_5%,rgba(6,21,52,.95)_48%,rgba(19,48,99,.85)_100%)]"
+          className="absolute inset-0 -z-10 bg-[linear-gradient(125deg,#0c0b0a_5%,rgba(20,18,15,.95)_48%,rgba(43,39,32,.85)_100%)]"
         />
         <div aria-hidden className="absolute inset-0 -z-10 grid-lines opacity-45" />
 

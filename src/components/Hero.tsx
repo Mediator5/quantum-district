@@ -45,7 +45,7 @@ export function Hero() {
       {/* Wash + grid */}
       <div
         aria-hidden
-        className="absolute inset-0 -z-10 bg-[linear-gradient(115deg,#030b1c_0%,rgba(6,21,52,.94)_42%,rgba(11,33,73,.78)_100%)]"
+        className="absolute inset-0 -z-10 bg-[linear-gradient(115deg,#0c0b0a_0%,rgba(20,18,15,.94)_42%,rgba(43,39,32,.78)_100%)]"
       />
       <div aria-hidden className="absolute inset-0 -z-10 grid-lines opacity-[0.55]" />
       <div
@@ -67,7 +67,7 @@ export function Hero() {
               transition={{ duration: 0.7, ease: EASE }}
               className="inline-flex items-center gap-2.5 rounded-full border border-white/15 bg-white/[0.06] py-1.5 pr-4 pl-1.5 backdrop-blur-sm"
             >
-              <span className="rounded-full bg-accent-500 px-2.5 py-1 text-[10px] font-bold tracking-[0.14em] text-white uppercase">
+              <span className="rounded-full bg-accent-500 px-2.5 py-1 text-[10px] font-bold tracking-[0.14em] text-navy-950 uppercase">
                 New
               </span>
               <span className="text-[13px] font-medium text-white/80">

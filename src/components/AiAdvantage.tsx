@@ -101,7 +101,7 @@ export function AiAdvantage() {
                     Online · answers instantly
                   </p>
                 </div>
-                <span className="rounded-full bg-accent-500/90 px-2.5 py-1 text-[9.5px] font-bold tracking-[0.12em] text-white uppercase">
+                <span className="rounded-full bg-accent-500 px-2.5 py-1 text-[9.5px] font-bold tracking-[0.12em] text-navy-950 uppercase">
                   AI
                 </span>
               </div>

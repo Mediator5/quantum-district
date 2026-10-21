@@ -54,10 +54,11 @@ export const isEmailConfigured = () =>
 /*  Branded HTML templates                                              */
 /* ------------------------------------------------------------------ */
 
-const NAVY = "#061534";
-const NAVY_SOFT = "#0b2149";
-const RED = "#e11d2e";
-const BORDER = "#e7eefa";
+const NAVY = "#14120f";
+const NAVY_SOFT = "#2b2720";
+const RED = "#c2a14d";
+const GOLD_TEXT = "#7c5f1e";
+const BORDER = "#ebe3d5";
 
 const esc = (s: string) =>
   String(s ?? "")
@@ -69,9 +70,9 @@ const esc = (s: string) =>
 function shell(inner: string, preheader: string) {
   return `<!doctype html>
 <html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head>
-<body style="margin:0;padding:0;background:#f5f8fd;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">
+<body style="margin:0;padding:0;background:#fbf8f3;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">
   <div style="display:none;max-height:0;overflow:hidden;opacity:0;">${esc(preheader)}</div>
-  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f5f8fd;padding:32px 16px;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#fbf8f3;padding:32px 16px;">
     <tr><td align="center">
       <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:600px;background:#ffffff;border:1px solid ${BORDER};border-radius:16px;overflow:hidden;">
         <tr><td style="background:${NAVY};padding:26px 32px;">
@@ -81,13 +82,13 @@ function shell(inner: string, preheader: string) {
             </td>
             <td>
               <div style="color:#ffffff;font-size:17px;font-weight:700;letter-spacing:-0.2px;">Quantum District</div>
-              <div style="color:#8fb4fb;font-size:11px;letter-spacing:1.6px;text-transform:uppercase;margin-top:3px;">Technology · Strategy · Transformation</div>
+              <div style="color:#d8bc73;font-size:11px;letter-spacing:1.6px;text-transform:uppercase;margin-top:3px;">Technology · Strategy · Transformation</div>
             </td>
           </tr></table>
         </td></tr>
         <tr><td style="height:3px;background:linear-gradient(90deg,${RED} 0%,${RED} 22%,${NAVY_SOFT} 22%);"></td></tr>
         <tr><td style="padding:32px;">${inner}</td></tr>
-        <tr><td style="padding:20px 32px;background:#f5f8fd;border-top:1px solid ${BORDER};color:#5b6b88;font-size:12px;line-height:1.6;">
+        <tr><td style="padding:20px 32px;background:#fbf8f3;border-top:1px solid ${BORDER};color:#6e6454;font-size:12px;line-height:1.6;">
           © ${new Date().getFullYear()} Quantum District. All rights reserved.<br/>
           Turning complex challenges into measurable progress.
         </td></tr>
@@ -100,7 +101,7 @@ function shell(inner: string, preheader: string) {
 function row(label: string, value?: string) {
   if (!value) return "";
   return `<tr>
-    <td style="padding:11px 0;border-bottom:1px solid ${BORDER};color:#5b6b88;font-size:12px;letter-spacing:.7px;text-transform:uppercase;width:38%;vertical-align:top;">${esc(label)}</td>
+    <td style="padding:11px 0;border-bottom:1px solid ${BORDER};color:#6e6454;font-size:12px;letter-spacing:.7px;text-transform:uppercase;width:38%;vertical-align:top;">${esc(label)}</td>
     <td style="padding:11px 0;border-bottom:1px solid ${BORDER};color:${NAVY};font-size:14px;line-height:1.6;">${esc(value)}</td>
   </tr>`;
 }
@@ -121,13 +122,13 @@ export type Lead = {
 export function internalEmail(lead: Lead) {
   const heat =
     lead.timeline === "Immediately" || lead.timeline === "Within 30 days"
-      ? `<div style="display:inline-block;background:${RED};color:#fff;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:5px 10px;border-radius:99px;margin-bottom:14px;">Priority · ${esc(lead.timeline)}</div>`
+      ? `<div style="display:inline-block;background:${RED};color:#14120f;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:5px 10px;border-radius:99px;margin-bottom:14px;">Priority · ${esc(lead.timeline)}</div>`
       : "";
 
   const inner = `
     ${heat}
     <h1 style="margin:0 0 6px;color:${NAVY};font-size:22px;line-height:1.25;">New inquiry from ${esc(lead.name)}</h1>
-    <p style="margin:0 0 22px;color:#5b6b88;font-size:14px;line-height:1.6;">
+    <p style="margin:0 0 22px;color:#6e6454;font-size:14px;line-height:1.6;">
       Submitted via the Quantum District website${lead.source ? ` · ${esc(lead.source)}` : ""}.
       Reply within one business day to hold the response promise.
     </p>
@@ -141,8 +142,8 @@ export function internalEmail(lead: Lead) {
       ${row("Timeline", lead.timeline)}
       ${row("Page", lead.pageUrl)}
     </table>
-    <div style="margin-top:24px;padding:18px 20px;background:#f5f8fd;border-left:3px solid ${RED};border-radius:0 10px 10px 0;">
-      <div style="color:#5b6b88;font-size:11px;letter-spacing:.9px;text-transform:uppercase;margin-bottom:8px;">The challenge</div>
+    <div style="margin-top:24px;padding:18px 20px;background:#fbf8f3;border-left:3px solid ${RED};border-radius:0 10px 10px 0;">
+      <div style="color:#6e6454;font-size:11px;letter-spacing:.9px;text-transform:uppercase;margin-bottom:8px;">The challenge</div>
       <div style="color:${NAVY};font-size:15px;line-height:1.7;white-space:pre-wrap;">${esc(lead.message)}</div>
     </div>
     <div style="margin-top:26px;">
@@ -171,22 +172,22 @@ export function autoReplyEmail(lead: Lead) {
   const first = esc(lead.name.split(" ")[0] || "there");
   const inner = `
     <h1 style="margin:0 0 14px;color:${NAVY};font-size:23px;line-height:1.25;">Thanks, ${first} — we have your message.</h1>
-    <p style="margin:0 0 16px;color:#3a4a66;font-size:15px;line-height:1.75;">
+    <p style="margin:0 0 16px;color:#3f3930;font-size:15px;line-height:1.75;">
       A senior consultant is reviewing what you sent and will reply personally
       <strong style="color:${NAVY};">in under one business day</strong> — with a point of view on your
       situation, not a brochure.
     </p>
-    <div style="margin:22px 0;padding:18px 20px;background:#f5f8fd;border-radius:12px;border:1px solid ${BORDER};">
-      <div style="color:#5b6b88;font-size:11px;letter-spacing:.9px;text-transform:uppercase;margin-bottom:8px;">What you told us</div>
+    <div style="margin:22px 0;padding:18px 20px;background:#fbf8f3;border-radius:12px;border:1px solid ${BORDER};">
+      <div style="color:#6e6454;font-size:11px;letter-spacing:.9px;text-transform:uppercase;margin-bottom:8px;">What you told us</div>
       <div style="color:${NAVY};font-size:14px;line-height:1.7;white-space:pre-wrap;">${esc(lead.message)}</div>
     </div>
-    <p style="margin:0 0 10px;color:#3a4a66;font-size:15px;line-height:1.75;">What happens next:</p>
+    <p style="margin:0 0 10px;color:#3f3930;font-size:15px;line-height:1.75;">What happens next:</p>
     <table role="presentation" cellpadding="0" cellspacing="0" style="margin:0 0 22px;">
-      <tr><td style="padding:6px 12px 6px 0;color:${RED};font-size:13px;font-weight:700;">01</td><td style="padding:6px 0;color:#3a4a66;font-size:14px;line-height:1.6;">We review your challenge and confirm fit.</td></tr>
-      <tr><td style="padding:6px 12px 6px 0;color:${RED};font-size:13px;font-weight:700;">02</td><td style="padding:6px 0;color:#3a4a66;font-size:14px;line-height:1.6;">A 30-minute discovery call, usually within 48 hours.</td></tr>
-      <tr><td style="padding:6px 12px 6px 0;color:${RED};font-size:13px;font-weight:700;">03</td><td style="padding:6px 0;color:#3a4a66;font-size:14px;line-height:1.6;">A scoped proposal and agreement through our client portal.</td></tr>
+      <tr><td style="padding:6px 12px 6px 0;color:${GOLD_TEXT};font-size:13px;font-weight:700;">01</td><td style="padding:6px 0;color:#3f3930;font-size:14px;line-height:1.6;">We review your challenge and confirm fit.</td></tr>
+      <tr><td style="padding:6px 12px 6px 0;color:${GOLD_TEXT};font-size:13px;font-weight:700;">02</td><td style="padding:6px 0;color:#3f3930;font-size:14px;line-height:1.6;">A 30-minute discovery call, usually within 48 hours.</td></tr>
+      <tr><td style="padding:6px 12px 6px 0;color:${GOLD_TEXT};font-size:13px;font-weight:700;">03</td><td style="padding:6px 0;color:#3f3930;font-size:14px;line-height:1.6;">A scoped proposal and agreement through our client portal.</td></tr>
     </table>
-    <p style="margin:0;color:#5b6b88;font-size:13px;line-height:1.7;">
+    <p style="margin:0;color:#6e6454;font-size:13px;line-height:1.7;">
       In the meantime, reply to this email if anything changes — it reaches our team directly.
     </p>`;
 
