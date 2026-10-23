@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowUpRight, Linkedin, Mail, MapPin, Phone } from "lucide-react";
 import { Logo } from "@/components/Logo";
 import { services, site } from "@/data/site";
+import Image from "next/image";
 
 const company = [
   { label: "About", href: "/#about" },
@@ -27,7 +28,14 @@ export function Footer() {
       <div className="container-qd relative">
         <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1.1fr]">
           <div>
-            <Logo variant="light" size="md" />
+             <Image
+                    src="/logo.png"
+                    alt="logo"
+                    width={120}
+                    height={40}
+                    className="rounded-md object-cover"
+                  />
+            {/* <Logo variant="light" size="md" /> */}
             <p className="mt-6 max-w-xs text-[14.5px] leading-relaxed text-white/55">
               Strategic technology and consulting for organizations navigating
               transformation, modernization, and complex delivery.

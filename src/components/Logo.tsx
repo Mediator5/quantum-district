@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { clsx } from "@/lib/clsx";
 
+
 type Props = {
   /** "light" = for dark backgrounds, "dark" = for white backgrounds */
   variant?: "light" | "dark";
