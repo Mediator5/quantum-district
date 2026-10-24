@@ -8,7 +8,6 @@ import { useEffect, useState } from "react";
 import { Logo } from "@/components/Logo";
 import { nav } from "@/data/site";
 import { clsx } from "@/lib/clsx";
-import Image from "next/image";
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -42,14 +41,7 @@ export function Header() {
         )}
       >
         <div className="container-qd flex items-center justify-between gap-6">
-         <Image
-        src="/logo.png"
-        alt="Zara"
-        width={120}
-        height={40}
-        className="rounded-xl object-cover"
-      />
-          {/* <Logo variant={onDark ? "light" : "dark"} size={scrolled ? "sm" : "md"} /> */}
+          <Logo variant={onDark ? "light" : "dark"} size={scrolled ? "sm" : "md"} />
 
           <nav className="hidden items-center gap-1 lg:flex">
             {nav.map((item) => (
@@ -113,7 +105,7 @@ export function Header() {
             />
             <div className="relative flex h-full flex-col">
               <div className="container-qd flex items-center justify-between py-4">
-                <Logo variant="light" size="sm" />
+                <Logo variant="light" size={scrolled ? "sm" : "md"} />
                 <button
                   onClick={() => setOpen(false)}
                   aria-label="Close menu"

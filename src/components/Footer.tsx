@@ -1,8 +1,7 @@
 import Link from "next/link";
 import { ArrowUpRight, Linkedin, Mail, MapPin, Phone } from "lucide-react";
-import { Logo } from "@/components/Logo";
+import { Logo, LogoWatermark } from "@/components/Logo";
 import { services, site } from "@/data/site";
-import Image from "next/image";
 
 const company = [
   { label: "About", href: "/#about" },
@@ -24,18 +23,12 @@ export function Footer() {
         aria-hidden
         className="absolute -bottom-40 left-1/2 h-80 w-[42rem] -translate-x-1/2 rounded-full bg-brand-600/14 blur-[120px]"
       />
+      <LogoWatermark className="pointer-events-none absolute -right-40 -bottom-56 hidden w-[52rem] text-accent-500/[0.09] lg:block" />
 
       <div className="container-qd relative">
         <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1.1fr]">
           <div>
-             <Image
-                    src="/logo.png"
-                    alt="logo"
-                    width={120}
-                    height={40}
-                    className="rounded-md object-cover"
-                  />
-            {/* <Logo variant="light" size="md" /> */}
+            <Logo variant="light" size="lg" />
             <p className="mt-6 max-w-xs text-[14.5px] leading-relaxed text-white/55">
               Strategic technology and consulting for organizations navigating
               transformation, modernization, and complex delivery.

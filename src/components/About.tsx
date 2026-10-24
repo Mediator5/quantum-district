@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Quote } from "lucide-react";
+import { Logo } from "@/components/Logo";
 import { Parallax, Reveal } from "@/components/Motion";
 import { SectionHeading } from "@/components/SectionHeading";
 
@@ -47,8 +48,8 @@ export function About() {
 
             <Reveal delay={0.25}>
               <div className="absolute -bottom-6 left-0 hidden items-center gap-3 rounded-2xl border border-navy-900/8 bg-white px-5 py-4 shadow-lift sm:flex">
-                <span className="grid h-11 w-11 place-items-center rounded-xl bg-navy-950 font-display text-[13px] font-bold tracking-wider text-white">
-                  QD
+                <span className="grid h-11 w-11 place-items-center rounded-xl bg-navy-950">
+                  <Logo layout="mark" variant="light" size="xs" href={null} sheen={false} />
                 </span>
                 <div>
                   <p className="font-display text-[15px] font-semibold text-navy-950">
